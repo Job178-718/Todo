@@ -2,11 +2,12 @@ package com.sun.todo.data
 
 import android.content.Context
 import androidx.room.*
+import com.sun.todo.data.model.Conversion
 import com.sun.todo.data.model.Priority
 import com.sun.todo.data.model.ToDoData
 
 @Database(entities = [ToDoData::class], version = 1, exportSchema = false)
-@TypeConverters(value = [Priority::class])
+@TypeConverters(Conversion::class)
 abstract class TodoDataBase:RoomDatabase() {
 
 

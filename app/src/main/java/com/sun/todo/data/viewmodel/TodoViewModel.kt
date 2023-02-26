@@ -9,20 +9,26 @@ import com.sun.todo.data.TodoDao
 import com.sun.todo.data.TodoDataBase
 import com.sun.todo.data.model.ToDoData
 import com.sun.todo.data.persistence.TodoPersistence
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class TodoViewModel(application: Application):AndroidViewModel(application) {
-    val db:TodoDao = TodoDataBase.getDataBase(application.applicationContext).getDao()
-    var todoPersistence:TodoPersistence? = null
-    var allData:LiveData<List<ToDoData>>? = null
+
+
+
+    private val db:TodoDao
+    private var todoPersistence:TodoPersistence
+    private var allData:LiveData<List<ToDoData>>
 
     init {
-       todoPersistence = TodoPersistence(db)
-       todoPersistence?.getAllData
+        db = TodoDataBase.getDataBase(application.applicationContext).getDao()
+        todoPersistence= TodoPersistence(db)
+        allData= todoPersistence?.getAllData!!
     }
 
-    suspend fun insert(toDoData: ToDoData){
-        viewModelScope.launch {
+    fun insert(toDoData: ToDoData){
+        //TODO：viewModelScope作用
+        viewModelScope.launch (Dispatchers.IO){
             todoPersistence?.insertToDo(toDoData)
         }
     }
