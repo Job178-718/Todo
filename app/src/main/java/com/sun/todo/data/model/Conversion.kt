@@ -1,5 +1,6 @@
 package com.sun.todo.data.model
 
+import android.util.Log
 import androidx.room.TypeConverter
 
 
@@ -7,28 +8,29 @@ class Conversion {
 
     @TypeConverter
     fun fromPriority(priority: Priority):String{
-        return toChinese(priority.name)
+        return priority.name
     }
 
     @TypeConverter
     fun toPriority(priority: String): Priority {
-        return Priority.valueOf(priority)
+        Log.w("Conversion","$priority")
+
+        return toEnglish(priority)
     }
 
 
-    private fun toChinese(name: String): String {
-        var c:String? = null
-        when(name){
-            "HIGH"->{
-                c = "高"
-            }
-            "MIDDLE"->{
-                c = "中"
-            }
-            "LOW"->{
-                c = "低级"
-            }
+    fun toEnglish(priority: String): Priority {
+        var p: Priority? = null
+        when(priority){
+            "高"->{p= Priority.HIGH}
+            "中"->{p= Priority.MIDDLE}
+            "低"->{p= Priority.LOW}
+            "HIGH"->{p= Priority.HIGH}
+            "MIDDLE"->{p=Priority.MIDDLE}
+            "LOW"->{p=Priority.LOW}
         }
-        return c!!
+        return p!!
     }
+
+
 }

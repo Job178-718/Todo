@@ -1,15 +1,14 @@
 <resources>
-    <string name="app_name">Todo</string>
+    <string name="app_name">记事本</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="decline">下降</string>
-    <string name="rise">上升</string>
+    <string name="decline">高—低</string>
+    <string name="rise">低—高</string>
     <string name="clear_all">清空所有</string>
     <string name="clear">删除</string>
+    <string name="ok">"OK"</string>
     <string-array name="priority">
         <item>高</item>
         <item>中</item>
         <item>低</item>
     </string-array>
-
 </resources>

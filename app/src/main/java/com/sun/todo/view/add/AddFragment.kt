@@ -1,20 +1,20 @@
 package com.sun.todo.view.add
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.sun.todo.R
-import com.sun.todo.data.model.Priority
 import com.sun.todo.data.model.ToDoData
 import com.sun.todo.data.viewmodel.ShareViewModel
 import com.sun.todo.data.viewmodel.TodoViewModel
 import com.sun.todo.databinding.FragmentAddBinding
 
 
-@Suppress("OverrideDeprecatedMigration")
 class AddFragment : Fragment() {
 
     private var bindind: FragmentAddBinding? = null
@@ -29,8 +29,8 @@ class AddFragment : Fragment() {
     ): View? {
         bindind = FragmentAddBinding.inflate(layoutInflater,container,false)
         setHasOptionsMenu(true)
-        bindind!!.priorityAdd.onItemSelectedListener = shareViewModel.listener
-        return bindind!!.root
+        bindind?.priorityAdd?.onItemSelectedListener = shareViewModel.listener
+        return bindind?.root
     }
 
 
@@ -48,6 +48,11 @@ class AddFragment : Fragment() {
     }
 
     private fun insertTodo() {
+        val sp: SharedPreferences = requireContext().getSharedPreferences("SpQing", Context.MODE_PRIVATE)
+        sp.edit()
+            .putString("聪明可爱的动物", "海豚")
+            .apply()
+
         val title = bindind!!.titleAdd.text.toString()
         val priority = bindind!!.priorityAdd.selectedItem.toString()
         val description = bindind!!.descriptionAdd.text.toString()
@@ -59,6 +64,7 @@ class AddFragment : Fragment() {
             todoViewModel.insert(newTodo)
             Toast.makeText(context,"添加完成",Toast.LENGTH_SHORT)
                 .show()
+            findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }else{
             Toast.makeText(context,"请填充所有的字段",Toast.LENGTH_SHORT)
                 .show()

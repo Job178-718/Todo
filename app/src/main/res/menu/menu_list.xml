@@ -12,9 +12,9 @@
         <item android:id="@+id/sort"
             android:title="排序">
             <menu>
-                <item android:id="@+id/decline"
-                    android:title="@string/decline"/>
                 <item android:id="@+id/rise"
+                    android:title="@string/decline"/>
+                <item android:id="@+id/decline"
                     android:title="@string/rise"/>
             </menu>
         </item>

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.sun.todo.data.model.ToDoData" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -42,5 +45,8 @@
         <action
             android:id="@+id/action_updateFragment_to_listFragment2"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.sun.todo.data.model.ToDoData" />
     </fragment>
 </navigation>
