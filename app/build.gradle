@@ -2,11 +2,32 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs'
+    //打包APK包
+//    id 'com.android.application' version '7.3.1' apply false
+//    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+//    id 'org.jetbrains.kotlin.jvm' version '1.7.20' apply false
 }
+
+
+
 //apply plugin的内容通常是在主build.gradle中引入这里使用
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//插件中META-INF.gradle-plugins包下的路径"xxxx.properties" apply plugin:'xxxx'
+apply plugin: 'com.jiagu'
+
+
+//jiagu
+jiagu {
+    userName '18236348040'
+    userPsd '310SyJ925'
+    keyStorePath 'F:\\Android\\Todo\\keystore.jks'
+    keyStoreAlias  'key0'
+    keyStoreKeyAliasPsd '123456'
+    keyStorePass '123456'
+    jiaguToolPath 'F:\\安装包\\360jiagubao_windows_64\\360jiagubao_windows_64\\jiagu\\jiagu.jar'
+}
 
 android {
     namespace 'com.sun.todo'
@@ -47,7 +68,7 @@ dependencies {
     def nav_version = "2.5.3"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     //room
     implementation 'androidx.room:room-runtime:2.4.0'
