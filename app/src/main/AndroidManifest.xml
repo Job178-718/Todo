@@ -24,6 +24,24 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".view.Launch1Activity"
+            android:exported="true"
+            android:enabled="false"
+            android:icon="@drawable/input_text">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.Launch2Activity"
+            android:exported="true"
+            android:enabled="false"
+            android:icon="@drawable/not_date">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
