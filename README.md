@@ -1,5 +1,6 @@
 # 记事本
-> MVVM架构的记事本项目,4444
+> MVVM架构的记事本项目
+
 ## 技术 
 + LiveData 
 + ViewModel 
