@@ -20,7 +20,6 @@ import com.sun.todo.data.model.ToDoData
 import com.sun.todo.data.viewmodel.ShareViewModel
 import com.sun.todo.data.viewmodel.TodoViewModel
 import com.sun.todo.databinding.FragmentListBinding
-import com.sun.todo.utils.IconSwitchHelper
 import com.sun.todo.view.list.adapter.ListAdapter
 import jp.wasabeef.recyclerview.animators.LandingAnimator
 
@@ -79,12 +78,6 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener{
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.clear_all-> deleteAll()
-            R.id.switch_icon1->{
-                IconSwitchHelper.getInstance(requireContext()).switchIcon(requireContext(),"Launch1Activity")
-            }
-            R.id.switch_icon2->{
-                IconSwitchHelper.getInstance(requireContext()).switchIcon(requireContext(),"Launch2Activity")
-            }
             R.id.decline-> {
                 Log.d("ListFragment","decline......")
                 todoViewModel.sortDeclineListTodo.observe(this)

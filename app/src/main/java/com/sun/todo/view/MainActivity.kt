@@ -7,7 +7,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.sun.todo.R
 import com.sun.todo.databinding.ActivityMainBinding
 
-open class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private var binding:ActivityMainBinding? = null
 
@@ -23,7 +23,3 @@ open class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
-
-
-class Launch1Activity :MainActivity()
-class Launch2Activity :MainActivity()
