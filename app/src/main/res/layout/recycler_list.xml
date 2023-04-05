@@ -13,7 +13,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_margin="@dimen/DIMEN_4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,11 +26,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            card_view:cardCornerRadius="100dp"
+            android:layout_width="@dimen/DIMEN_15dp"
+            android:layout_height="@dimen/DIMEN_15dp"
+            android:layout_marginTop="@dimen/DIMEN_15dp"
+            android:layout_marginEnd="@dimen/DIMEN_15dp"
+            card_view:cardCornerRadius="@dimen/DIMEN_96dp"
             android:cardBackGround="@{todoData.priority}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,9 +39,9 @@
             android:id="@+id/title_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="20dp"
+            android:layout_marginStart="@dimen/DIMEN_15dp"
+            android:layout_marginTop="@dimen/DIMEN_15dp"
+            android:textSize="@dimen/DIMEN_20dp"
             android:textStyle="bold"
             android:text="@{todoData.title}"
             android:textColor="@android:color/black"
@@ -53,15 +53,15 @@
             android:id="@+id/description_list"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/DIMEN_15dp"
+            android:layout_marginTop="@dimen/DIMEN_12dp"
+            android:layout_marginEnd="@dimen/DIMEN_15dp"
+            android:layout_marginBottom="@dimen/DIMEN_15dp"
             android:maxLength="300"
             android:maxLines="10"
             android:text="@{todoData.description}"
             android:textColor="@android:color/darker_gray"
-            android:textSize="16dp"
+            android:textSize="@dimen/DIMEN_12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
